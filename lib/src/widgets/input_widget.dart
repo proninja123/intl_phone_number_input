@@ -61,7 +61,8 @@ class InternationalPhoneNumberInput extends StatefulWidget {
   final double spaceBetweenSelectorAndTextField;
   final int maxLength;
 
-  final bool isEnabled;
+  final bool isPhoneFieldEnabled;
+  final bool isCountryPickerEnabled;
   final bool formatInput;
   final bool autoFocus;
   final bool autoFocusSearch;
@@ -105,7 +106,8 @@ class InternationalPhoneNumberInput extends StatefulWidget {
       this.selectorButtonOnErrorPadding = 24,
       this.spaceBetweenSelectorAndTextField = 12,
       this.maxLength = 15,
-      this.isEnabled = true,
+      this.isPhoneFieldEnabled = true,
+      this.isCountryPickerEnabled = true,
       this.formatInput = true,
       this.autoFocus = false,
       this.autoFocusSearch = false,
@@ -300,7 +302,7 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
         selectorTextStyle: widget.selectorTextStyle,
         searchBoxDecoration: widget.searchBoxDecoration,
         locale: locale,
-        isEnabled: widget.isEnabled,
+        isEnabled: widget.isCountryPickerEnabled,
         autoFocusSearchField: widget.autoFocusSearch,
         isScrollControlled: widget.countrySelectorScrollControlled,
       ));
@@ -407,7 +409,7 @@ class _InputWidgetView
                   selectorTextStyle: widget.selectorTextStyle,
                   searchBoxDecoration: widget.searchBoxDecoration,
                   locale: state.locale,
-                  isEnabled: widget.isEnabled,
+                  isEnabled: widget.isCountryPickerEnabled,
                   autoFocusSearchField: widget.autoFocusSearch,
                   isScrollControlled: widget.countrySelectorScrollControlled,
                 ),
@@ -425,7 +427,7 @@ class _InputWidgetView
               controller: state.controller,
               cursorColor: widget.cursorColor,
               focusNode: widget.focusNode,
-              enabled: widget.isEnabled,
+              enabled: widget.isPhoneFieldEnabled,
               autofocus: widget.autoFocus,
               keyboardType: widget.keyboardType,
               textInputAction: widget.keyboardAction,
